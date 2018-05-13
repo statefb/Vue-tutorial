@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- vue.js -->
+<script src="./scripts/vue.js"></script>
+
+<script type="text/javascript">
+  $(window).on("load",function(){
+
+    var vm = new Vue({
+      el: "#example",
+      data:{
+        message:"",
+      }
+    })
+
+    var vm2 = new Vue({
+      el:"#example2",
+      data:{
+        message:"",
+      }
+    })
+
+    var vm3 = new Vue({
+      el:"#example3",
+      data:{
+        checked:true
+      }
+    })
+
+    var vm4 = new Vue({
+      el:"#example4",
+      data:{
+        checkedNames:[]
+      }
+    })
+
+    var vm5 = new Vue({
+      el:"#example5",
+      data:{
+        picked:""
+      }
+    })
+
+    var vm6 = new Vue({
+      el:"#example6",
+      data:{
+        selected:"A",
+        options:[
+          {text:"One",value:"A"},
+          {text:"2",value:"b"},
+          {text:"three",value:"C"},
+        ]
+      }
+    })
+
+  })
+</script>
+
+<title>hello vue</title>
+</head>
+<body>
+<!-- content -->
+
+<div class="" id="example">
+  <input type="text" name="" value=""
+    v-model="message" placeholder="edit me"
+  >
+  <p>message is : {{message}}</p>
+</div>
+
+<div class="" id="example2">
+  <span>Multiline massage is:</span>
+  <p style="white-space:pre-line;">{{message}}</p>
+  <br>
+  <textarea name="name" rows="8" cols="80"
+    v-model="message" placeholder="add multiple lines"
+  ></textarea>
+</div>
+
+<div class="" id="example3">
+  <input type="checkbox" name="" value="" id="checkbox" v-model="checked">
+  <label for="checkbox">{{checked}}</label>
+</div>
+
+<div class="" id="example4">
+  <input type="checkbox" id="jack" name="" value="Jack" v-model="checkedNames">
+  <label for="jack">Jack</label>
+  <input type="checkbox" id="john" name="" value="John" v-model="checkedNames">
+  <label for="john">John</label>
+  <input type="checkbox" id="mike" name="" value="Mike" v-model="checkedNames">
+  <label for="mike">Mike</label>
+  <br>
+  <span>Checked names: {{checkedNames}}</span>
+</div>
+
+<div class="" id="example5">
+  <input type="radio" id="one" name="" value="One" v-model="picked">
+  <label for="one">One</label>
+  <br>
+  <input type="radio" id="two" value="Two" v-model="picked">
+  <label for="two">Two</label>
+  <br>
+  <span>Picked: {{ picked }}</span>
+</div>
+
+<div class="" id="example6">
+  <select class="" name="" v-model="selected">
+    <option v-for="option in options" v-bind:value="option.value">
+      {{option.text}}
+    </option>
+  </select>
+  <span>Selected: {{selected}}</span>
+</div>
+
+</body>
+</html>

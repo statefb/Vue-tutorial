@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- vue.js -->
+<script src="./scripts/vue.js"></script>
+
+<script type="text/javascript">
+  $(window).on("load",function(){
+
+    var example1 = new Vue({
+      el: "#example-1",
+      data:{
+        counter:0
+      }
+    })
+
+    var example2 = new Vue({
+      el: "#example-2",
+      data:{
+        name: "Vue-js"
+      },
+      methods:{
+        greet: function(event){
+          alert("Hello" + this.name + "!")
+          if(event){
+            alert(event.target.tagName)
+          }
+        }
+      }
+    })
+
+    var example3 = new Vue({
+      el: "#example-3",
+      methods:{
+        say: function(message){
+          alert(message)
+        }
+      }
+    })
+  })
+</script>
+
+<title>hello vue</title>
+</head>
+<body>
+<!-- content -->
+
+<div id="example-1">
+  <button type="button" name="button"
+    v-on:click="counter += 1"
+  >Add 1</button>
+  <p>ボタンが{{counter}}回押されました</p>
+</div>
+
+<div id="example-2">
+  <button type="button" name="button"
+    v-on:click="greet"
+  >Greet</button>
+</div>
+
+
+<div class="" id="example-3">
+  <button type="button" name="button"
+    v-on:click="say('hi')"
+  >Say hi</button>
+  <button type="button" name="button"
+    v-on:click="say('what')"
+  >Say what</button>
+</div>
+
+</body>
+</html>
